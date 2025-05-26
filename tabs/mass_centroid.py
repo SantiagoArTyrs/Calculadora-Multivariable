@@ -8,7 +8,7 @@ x, y = sp.symbols('x y')
 def render_mass_and_centroid_tab(a, b, c, d):
     st.header("⚖️ Masa y Centro de Masa")
 
-    density_input = st.text_input("ρ(x, y) =", "x**2 + y**2", key="density_mass")
+    density_input = st.text_input("ρ(x, y) =", "x^2 + y^2", key="density_mass")
     st.info("Funciones especiales permitidas: sin(x), cos(x), tan(x), log(x), exp(x), sqrt(x), etc.")
 
     density = parse_expression(density_input)

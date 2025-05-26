@@ -7,7 +7,7 @@ from core.utils import parse_expression
 x, y = sp.symbols('x y')
 
 def plot_interactive_function():
-    expr_input = st.text_input("f(x, y) para graficar:", "x**2 + y**2")
+    expr_input = st.text_input("f(x, y) para graficar:", "x^2 + y^2")
     st.info("Funciones especiales permitidas: sin(x), cos(x), tan(x), log(x), exp(x), sqrt(x), etc.")
 
     expression = parse_expression(expr_input)
