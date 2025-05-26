@@ -1,6 +1,6 @@
 import streamlit as st
 import sympy as sp
-from core.utils import parse_expression
+from core.utils import parse_expression, guardar_en_historial_json
 from core.calculator import show_mass_and_centroid_steps
 
 x, y = sp.symbols('x y')
@@ -24,3 +24,14 @@ def render_mass_and_centroid_tab(a, b, c, d):
                 st.latex(formula)
 
         st.info("Nota: El centroide (x̄, ȳ) es el punto donde se encuentra el centro de masa de la figura.")
+
+        guardar_en_historial_json({
+            "tipo": "Masa y Centroide",
+            "expresion": density_input,
+            "resultado": f"M = {mass}, x̄ = {x_cm}, ȳ = {y_cm}",
+            "limites": {
+                "x": [str(a), str(b)],
+                "y": [str(c), str(d)]
+            },
+            "pasos": steps
+        })

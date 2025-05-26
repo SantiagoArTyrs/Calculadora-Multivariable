@@ -1,7 +1,7 @@
 import streamlit as st
 import sympy as sp
-from core.utils import parse_expression
-from core.calculator import show_detailed_double_integral_steps, show_double_integral_volume_steps
+from core.utils import parse_expression, guardar_en_historial_json
+from core.calculator import show_detailed_double_integral_steps
 
 x, y = sp.symbols('x y')
 
@@ -21,19 +21,13 @@ def render_double_integration_tab(a, b, c, d):
                 st.markdown(f"**{description}**")
                 st.latex(equation)
 
-
-def render_double_volume_tab(a, b, c, d):
-    st.header("📗 Volumen con Integral Doble")
-    expr_input = st.text_input("f(x, y) =", "x2 + y2", key="double_volume_func")
-    st.info("Esta función se integrará como volumen bajo la superficie f(x, y). Puedes usar sin(x), xy^2, etc.")
-
-    expression = parse_expression(expr_input)
-
-    if expression:
-        steps, result = show_double_integral_volume_steps(expression, (a, b), (c, d))
-        st.latex(f"V = \\iint_{{D}} {sp.latex(expression)} \\, dx \\, dy = {sp.latex(result)}")
-
-        with st.expander("Ver pasos detallados de la solución"):
-            for description, equation in steps:
-                st.markdown(f"**{description}**")
-                st.latex(equation)
+        guardar_en_historial_json({
+            "tipo": "Integración doble",
+            "expresion": expr_input,
+            "resultado": str(result),
+            "limites": {
+                "x": [str(a), str(b)],
+                "y": [str(c), str(d)]
+            },
+            "pasos": steps
+        })

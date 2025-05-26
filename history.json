@@ -1,0 +1,37 @@
+[
+  {
+    "tipo": "Derivación",
+    "expresion": "x^2 * y + y^3",
+    "resultado": "∂f/∂x = 2*x*y, ∂f/∂y = x**2 + 3*y**2",
+    "pasos": [
+      [
+        "∂f/∂x",
+        "2 x y"
+      ],
+      [
+        "∂f/∂y",
+        "x^{2} + 3 y^{2}"
+      ],
+      [
+        "∂²f/∂x²",
+        "2 y"
+      ],
+      [
+        "∂²f/∂y²",
+        "6 y"
+      ],
+      [
+        "∂²f/∂x∂y",
+        "2 x"
+      ],
+      [
+        "∂²f/∂y∂x",
+        "2 x"
+      ],
+      [
+        "Hessiana",
+        "\\left[\\begin{matrix}2 y & 2 x\\\\2 x & 6 y\\end{matrix}\\right]"
+      ]
+    ]
+  }
+]

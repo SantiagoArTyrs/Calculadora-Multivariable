@@ -1,6 +1,6 @@
 import streamlit as st
 import sympy as sp
-from core.utils import parse_expression
+from core.utils import parse_expression, guardar_en_historial_json
 
 x, y = sp.symbols('x y')
 
@@ -32,7 +32,6 @@ def render_derivation_tab():
         st.latex(f"\\frac{{\\partial^2 f}}{{\\partial y^2}} = {sp.latex(second_order_dyy)}")
         st.latex(f"\\frac{{\\partial^2 f}}{{\\partial x \\partial y}} = {sp.latex(second_order_dxy)}")
         st.latex(f"\\frac{{\\partial^2 f}}{{\\partial y \\partial x}} = {sp.latex(second_order_dyx)}")
-        st.info("Nota: Las derivadas parciales de segundo orden son iguales si la función es continua y tiene derivadas parciales continuas.")
 
         hessian_matrix = sp.Matrix([
             [second_order_dxx, second_order_dxy],
@@ -41,4 +40,19 @@ def render_derivation_tab():
 
         st.subheader("📐 Matriz Hessiana de f(x, y)")
         st.latex(f"H(f) = {sp.latex(hessian_matrix)}")
-        st.info("La matriz Hessiana es útil para determinar la naturaleza de los puntos críticos de una función.")
+
+        # Guardar en historial
+        guardar_en_historial_json({
+            "tipo": "Derivación",
+            "expresion": expr_input,
+            "resultado": f"∂f/∂x = {first_order_dx}, ∂f/∂y = {first_order_dy}",
+            "pasos": [
+                ["∂f/∂x", sp.latex(first_order_dx)],
+                ["∂f/∂y", sp.latex(first_order_dy)],
+                ["∂²f/∂x²", sp.latex(second_order_dxx)],
+                ["∂²f/∂y²", sp.latex(second_order_dyy)],
+                ["∂²f/∂x∂y", sp.latex(second_order_dxy)],
+                ["∂²f/∂y∂x", sp.latex(second_order_dyx)],
+                ["Hessiana", sp.latex(hessian_matrix)]
+            ]
+        })

@@ -1,5 +1,7 @@
 import sympy as sp
 import numpy as np
+import json
+import os
 from sympy.parsing.sympy_parser import (
     parse_expr,
     standard_transformations,
@@ -7,23 +9,13 @@ from sympy.parsing.sympy_parser import (
     convert_xor
 )
 
-# Dictionary of allowed special functions for parsing
 special_functions = {
-    'sin': sp.sin,
-    'cos': sp.cos,
-    'tan': sp.tan,
-    'log': sp.log,
-    'ln': sp.log,
-    'sqrt': sp.sqrt,
-    'exp': sp.exp,
-    'pi': sp.pi,
-    'e': sp.E
+    'sin': sp.sin, 'cos': sp.cos, 'tan': sp.tan, 'log': sp.log,
+    'ln': sp.log, 'sqrt': sp.sqrt, 'exp': sp.exp, 'pi': sp.pi, 'e': sp.E
 }
 
-# Parser transformations: allow implicit multiplication and ^ for powers
 transformations = standard_transformations + (
-    implicit_multiplication_application,
-    convert_xor
+    implicit_multiplication_application, convert_xor
 )
 
 def parse_expression(expression_str):
@@ -58,17 +50,31 @@ def convert_to_numpy_function(sym_function, variables):
         print("❌ Failed to convert function:", e)
         return None
 
-def save_result(text, file_name="results.txt"):
-    try:
-        with open(file_name, 'a', encoding='utf-8') as f:
-            f.write(text + "\n")
-        print(f"📁 Result saved in {file_name}")
-    except Exception as e:
-        print("❌ Failed to save result:", e)
-
 def evaluate_symbolic(value_str):
     try:
         return float(sp.sympify(value_str, locals=special_functions).evalf())
     except Exception as e:
         print("❌ Failed to interpret symbolic value:", e)
         return None
+
+def guardar_en_historial_json(entrada, archivo="history.json"):
+    try:
+        historial = []
+        if os.path.exists(archivo):
+            with open(archivo, "r", encoding="utf-8") as f:
+                historial = json.load(f)
+        historial.append(entrada)
+        with open(archivo, "w", encoding="utf-8") as f:
+            json.dump(historial, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print("❌ Error al guardar en historial:", e)
+
+def cargar_historial(archivo="history.json"):
+    try:
+        if os.path.exists(archivo):
+            with open(archivo, "r", encoding="utf-8") as f:
+                return json.load(f)
+        return []
+    except Exception as e:
+        print("❌ Error al cargar historial:", e)
+        return []
