@@ -33,5 +33,482 @@
         "\\left[\\begin{matrix}2 y & 2 x\\\\2 x & 6 y\\end{matrix}\\right]"
       ]
     ]
+  },
+  {
+    "tipo": "Derivación",
+    "expresion": "x^2 * y + y^3",
+    "resultado": "∂f/∂x = 2*x*y, ∂f/∂y = x**2 + 3*y**2",
+    "pasos": [
+      [
+        "∂f/∂x",
+        "2 x y"
+      ],
+      [
+        "∂f/∂y",
+        "x^{2} + 3 y^{2}"
+      ],
+      [
+        "∂²f/∂x²",
+        "2 y"
+      ],
+      [
+        "∂²f/∂y²",
+        "6 y"
+      ],
+      [
+        "∂²f/∂x∂y",
+        "2 x"
+      ],
+      [
+        "∂²f/∂y∂x",
+        "2 x"
+      ],
+      [
+        "Hessiana",
+        "\\left[\\begin{matrix}2 y & 2 x\\\\2 x & 6 y\\end{matrix}\\right]"
+      ]
+    ]
+  },
+  {
+    "tipo": "Integración doble",
+    "expresion": "xy + y2",
+    "resultado": "5/4",
+    "limites": {
+      "x": [
+        "0",
+        "1"
+      ],
+      "y": [
+        "0",
+        "1"
+      ]
+    },
+    "pasos": [
+      [
+        "Planteamiento completo:",
+        "\\int_{0}^{1} \\left[ \\int_{0}^{1} x y + 2 y \\, dy \\right] dx"
+      ],
+      [
+        "Se integra primero respecto a \\( y \\), manteniendo \\( x \\) constante:",
+        ""
+      ],
+      [
+        "Descomposición del integrando:",
+        "x y + 2 y = 2 y + x y"
+      ],
+      [
+        "Antiderivada respecto a y (sin evaluar):",
+        "\\int x y + 2 y \\, dy = \\int \\left(x y + 2 y\\right)\\, dy"
+      ],
+      [
+        "Evaluando de y=0 a y=1:",
+        "\\left[ \\int \\left(x y + 2 y\\right)\\, dy \\right]_{y=0}^{y=1} = \\frac{x}{2} + 1"
+      ],
+      [
+        "Se integra ahora respecto a \\( x \\):",
+        "\\int_{0}^{1} \\frac{x}{2} + 1 \\, dx"
+      ],
+      [
+        "Descomposición del integrando externo:",
+        "\\frac{x}{2} + 1 = 1 + \\frac{x}{2}"
+      ],
+      [
+        "Antiderivada respecto a x (sin evaluar):",
+        "\\int \\frac{x}{2} + 1 \\, dx = \\int \\left(\\frac{x}{2} + 1\\right)\\, dx"
+      ],
+      [
+        "Evaluando de x=0 a x=1:",
+        "\\left[ \\int \\left(\\frac{x}{2} + 1\\right)\\, dx \\right]_{x=0}^{x=1} = \\frac{5}{4}"
+      ],
+      [
+        "🎉 Resultado final de la integral doble:",
+        "\\frac{5}{4}"
+      ]
+    ]
+  },
+  {
+    "tipo": "Integral triple",
+    "expresion": "xyz + 1",
+    "resultado": "9/8",
+    "limites": {
+      "x": [
+        "0",
+        "1"
+      ],
+      "y": [
+        "0",
+        "1"
+      ],
+      "z": [
+        "0",
+        "1"
+      ]
+    },
+    "pasos": [
+      [
+        "Planteamiento de la integral triple:",
+        "\\iiint_{D} x y z + 1 \\, dz \\, dy \\, dx = \\int_{0}^{1} \\int_{0}^{1} \\int_{0}^{1} x y z + 1 \\, dz \\, dy \\, dx"
+      ],
+      [
+        "Descomposición del integrando:",
+        "x y z + 1 = 1 + x y z"
+      ],
+      [
+        "Paso 1: Antiderivada respecto a z:",
+        "\\int x y z + 1 \\, dz = \\int \\left(x y z + 1\\right)\\, dz"
+      ],
+      [
+        "Evaluando de z=0 a z=1:",
+        "\\left[ \\int \\left(x y z + 1\\right)\\, dz \\right]_{z=0}^{z=1} = \\frac{x y}{2} + 1"
+      ],
+      [
+        "Paso 2: Antiderivada respecto a y:",
+        "\\int \\frac{x y}{2} + 1 \\, dy = \\int \\left(\\frac{x y}{2} + 1\\right)\\, dy"
+      ],
+      [
+        "Evaluando de y=0 a y=1:",
+        "\\left[ \\int \\left(\\frac{x y}{2} + 1\\right)\\, dy \\right]_{y=0}^{y=1} = \\frac{x}{4} + 1"
+      ],
+      [
+        "Paso 3: Antiderivada respecto a x:",
+        "\\int \\frac{x}{4} + 1 \\, dx = \\int \\left(\\frac{x}{4} + 1\\right)\\, dx"
+      ],
+      [
+        "Evaluando de x=0 a x=1:",
+        "\\left[ \\int \\left(\\frac{x}{4} + 1\\right)\\, dx \\right]_{x=0}^{x=1} = \\frac{9}{8}"
+      ],
+      [
+        "🎉 Resultado final de la integral triple:",
+        "\\frac{9}{8}"
+      ]
+    ]
+  },
+  {
+    "tipo": "Masa y Centroide",
+    "expresion": "x^2 + y^2",
+    "resultado": "M = 2/3, x̄ = 5/8, ȳ = 5/8",
+    "limites": {
+      "x": [
+        "0",
+        "1"
+      ],
+      "y": [
+        "0",
+        "1"
+      ]
+    },
+    "pasos": [
+      [
+        "Integral para la masa:",
+        "M = \\iint_{D} x^{2} + y^{2} \\, dx \\, dy = \\frac{2}{3}"
+      ],
+      [
+        "Cálculo de la coordenada x del centro de masa:",
+        "\\bar{x} = \\frac{\\iint x \\cdot \\rho(x, y) \\, dx \\, dy}{M} = \\frac{5}{8}"
+      ],
+      [
+        "Cálculo de la coordenada y del centro de masa:",
+        "\\bar{y} = \\frac{\\iint y \\cdot \\rho(x, y) \\, dx \\, dy}{M} = \\frac{5}{8}"
+      ]
+    ]
+  },
+  {
+    "tipo": "Derivación",
+    "expresion": "x^2 * y + y^3",
+    "resultado": "∂f/∂x = 2*x*y, ∂f/∂y = x**2 + 3*y**2",
+    "pasos": [
+      [
+        "∂f/∂x",
+        "2 x y"
+      ],
+      [
+        "∂f/∂y",
+        "x^{2} + 3 y^{2}"
+      ],
+      [
+        "∂²f/∂x²",
+        "2 y"
+      ],
+      [
+        "∂²f/∂y²",
+        "6 y"
+      ],
+      [
+        "∂²f/∂x∂y",
+        "2 x"
+      ],
+      [
+        "∂²f/∂y∂x",
+        "2 x"
+      ],
+      [
+        "Hessiana",
+        "\\left[\\begin{matrix}2 y & 2 x\\\\2 x & 6 y\\end{matrix}\\right]"
+      ]
+    ]
+  },
+  {
+    "tipo": "Integración doble",
+    "expresion": "xy + y2",
+    "resultado": "5/4",
+    "limites": {
+      "x": [
+        "0",
+        "1"
+      ],
+      "y": [
+        "0",
+        "1"
+      ]
+    },
+    "pasos": [
+      [
+        "Planteamiento completo:",
+        "\\int_{0}^{1} \\left[ \\int_{0}^{1} x y + 2 y \\, dy \\right] dx"
+      ],
+      [
+        "Se integra primero respecto a \\( y \\), manteniendo \\( x \\) constante:",
+        ""
+      ],
+      [
+        "Descomposición del integrando:",
+        "x y + 2 y = 2 y + x y"
+      ],
+      [
+        "Antiderivada respecto a y (sin evaluar):",
+        "\\int x y + 2 y \\, dy = \\int \\left(x y + 2 y\\right)\\, dy"
+      ],
+      [
+        "Evaluando de y=0 a y=1:",
+        "\\left[ \\int \\left(x y + 2 y\\right)\\, dy \\right]_{y=0}^{y=1} = \\frac{x}{2} + 1"
+      ],
+      [
+        "Se integra ahora respecto a \\( x \\):",
+        "\\int_{0}^{1} \\frac{x}{2} + 1 \\, dx"
+      ],
+      [
+        "Descomposición del integrando externo:",
+        "\\frac{x}{2} + 1 = 1 + \\frac{x}{2}"
+      ],
+      [
+        "Antiderivada respecto a x (sin evaluar):",
+        "\\int \\frac{x}{2} + 1 \\, dx = \\int \\left(\\frac{x}{2} + 1\\right)\\, dx"
+      ],
+      [
+        "Evaluando de x=0 a x=1:",
+        "\\left[ \\int \\left(\\frac{x}{2} + 1\\right)\\, dx \\right]_{x=0}^{x=1} = \\frac{5}{4}"
+      ],
+      [
+        "🎉 Resultado final de la integral doble:",
+        "\\frac{5}{4}"
+      ]
+    ]
+  },
+  {
+    "tipo": "Integral triple",
+    "expresion": "xyz + 1",
+    "resultado": "9/8",
+    "limites": {
+      "x": [
+        "0",
+        "1"
+      ],
+      "y": [
+        "0",
+        "1"
+      ],
+      "z": [
+        "0",
+        "1"
+      ]
+    },
+    "pasos": [
+      [
+        "Planteamiento de la integral triple:",
+        "\\iiint_{D} x y z + 1 \\, dz \\, dy \\, dx = \\int_{0}^{1} \\int_{0}^{1} \\int_{0}^{1} x y z + 1 \\, dz \\, dy \\, dx"
+      ],
+      [
+        "Descomposición del integrando:",
+        "x y z + 1 = 1 + x y z"
+      ],
+      [
+        "Paso 1: Antiderivada respecto a z:",
+        "\\int x y z + 1 \\, dz = \\int \\left(x y z + 1\\right)\\, dz"
+      ],
+      [
+        "Evaluando de z=0 a z=1:",
+        "\\left[ \\int \\left(x y z + 1\\right)\\, dz \\right]_{z=0}^{z=1} = \\frac{x y}{2} + 1"
+      ],
+      [
+        "Paso 2: Antiderivada respecto a y:",
+        "\\int \\frac{x y}{2} + 1 \\, dy = \\int \\left(\\frac{x y}{2} + 1\\right)\\, dy"
+      ],
+      [
+        "Evaluando de y=0 a y=1:",
+        "\\left[ \\int \\left(\\frac{x y}{2} + 1\\right)\\, dy \\right]_{y=0}^{y=1} = \\frac{x}{4} + 1"
+      ],
+      [
+        "Paso 3: Antiderivada respecto a x:",
+        "\\int \\frac{x}{4} + 1 \\, dx = \\int \\left(\\frac{x}{4} + 1\\right)\\, dx"
+      ],
+      [
+        "Evaluando de x=0 a x=1:",
+        "\\left[ \\int \\left(\\frac{x}{4} + 1\\right)\\, dx \\right]_{x=0}^{x=1} = \\frac{9}{8}"
+      ],
+      [
+        "🎉 Resultado final de la integral triple:",
+        "\\frac{9}{8}"
+      ]
+    ]
+  },
+  {
+    "tipo": "Masa y Centroide",
+    "expresion": "x^2 + y^2",
+    "resultado": "M = 2/3, x̄ = 5/8, ȳ = 5/8",
+    "limites": {
+      "x": [
+        "0",
+        "1"
+      ],
+      "y": [
+        "0",
+        "1"
+      ]
+    },
+    "pasos": [
+      [
+        "Integral para la masa:",
+        "M = \\iint_{D} x^{2} + y^{2} \\, dx \\, dy = \\frac{2}{3}"
+      ],
+      [
+        "Cálculo de la coordenada x del centro de masa:",
+        "\\bar{x} = \\frac{\\iint x \\cdot \\rho(x, y) \\, dx \\, dy}{M} = \\frac{5}{8}"
+      ],
+      [
+        "Cálculo de la coordenada y del centro de masa:",
+        "\\bar{y} = \\frac{\\iint y \\cdot \\rho(x, y) \\, dx \\, dy}{M} = \\frac{5}{8}"
+      ]
+    ]
+  },
+  {
+    "tipo": "Derivación",
+    "expresion": "x^2 * y + y^3",
+    "resultado": "∂f/∂x = 2*x*y, ∂f/∂y = x**2 + 3*y**2",
+    "pasos": [
+      [
+        "∂f/∂x",
+        "2 x y"
+      ],
+      [
+        "∂f/∂y",
+        "x^{2} + 3 y^{2}"
+      ],
+      [
+        "∂²f/∂x²",
+        "2 y"
+      ],
+      [
+        "∂²f/∂y²",
+        "6 y"
+      ],
+      [
+        "∂²f/∂x∂y",
+        "2 x"
+      ],
+      [
+        "∂²f/∂y∂x",
+        "2 x"
+      ],
+      [
+        "Hessiana",
+        "\\left[\\begin{matrix}2 y & 2 x\\\\2 x & 6 y\\end{matrix}\\right]"
+      ]
+    ]
+  },
+  {
+    "tipo": "Masa y Centroide",
+    "expresion": "x^2 + y^2",
+    "resultado": "M = 2/3, x̄ = 5/8, ȳ = 5/8",
+    "limites": {
+      "x": [
+        "0",
+        "1"
+      ],
+      "y": [
+        "0",
+        "1"
+      ]
+    },
+    "pasos": [
+      [
+        "Integral para la masa:",
+        "M = \\iint_{D} x^{2} + y^{2} \\, dx \\, dy = \\frac{2}{3}"
+      ],
+      [
+        "Cálculo de la coordenada x del centro de masa:",
+        "\\bar{x} = \\frac{\\iint x \\cdot \\rho(x, y) \\, dx \\, dy}{M} = \\frac{5}{8}"
+      ],
+      [
+        "Cálculo de la coordenada y del centro de masa:",
+        "\\bar{y} = \\frac{\\iint y \\cdot \\rho(x, y) \\, dx \\, dy}{M} = \\frac{5}{8}"
+      ]
+    ]
+  },
+  {
+    "tipo": "Integral triple",
+    "expresion": "xyz + 1",
+    "resultado": "9/8",
+    "limites": {
+      "x": [
+        "0",
+        "1"
+      ],
+      "y": [
+        "0",
+        "1"
+      ],
+      "z": [
+        "0",
+        "1"
+      ]
+    },
+    "pasos": [
+      [
+        "Planteamiento de la integral triple:",
+        "\\iiint_{D} x y z + 1 \\, dz \\, dy \\, dx = \\int_{0}^{1} \\int_{0}^{1} \\int_{0}^{1} x y z + 1 \\, dz \\, dy \\, dx"
+      ],
+      [
+        "Descomposición del integrando:",
+        "x y z + 1 = 1 + x y z"
+      ],
+      [
+        "Paso 1: Antiderivada respecto a z:",
+        "\\int x y z + 1 \\, dz = \\int \\left(x y z + 1\\right)\\, dz"
+      ],
+      [
+        "Evaluando de z=0 a z=1:",
+        "\\left[ \\int \\left(x y z + 1\\right)\\, dz \\right]_{z=0}^{z=1} = \\frac{x y}{2} + 1"
+      ],
+      [
+        "Paso 2: Antiderivada respecto a y:",
+        "\\int \\frac{x y}{2} + 1 \\, dy = \\int \\left(\\frac{x y}{2} + 1\\right)\\, dy"
+      ],
+      [
+        "Evaluando de y=0 a y=1:",
+        "\\left[ \\int \\left(\\frac{x y}{2} + 1\\right)\\, dy \\right]_{y=0}^{y=1} = \\frac{x}{4} + 1"
+      ],
+      [
+        "Paso 3: Antiderivada respecto a x:",
+        "\\int \\frac{x}{4} + 1 \\, dx = \\int \\left(\\frac{x}{4} + 1\\right)\\, dx"
+      ],
+      [
+        "Evaluando de x=0 a x=1:",
+        "\\left[ \\int \\left(\\frac{x}{4} + 1\\right)\\, dx \\right]_{x=0}^{x=1} = \\frac{9}{8}"
+      ],
+      [
+        "🎉 Resultado final de la integral triple:",
+        "\\frac{9}{8}"
+      ]
+    ]
   }
 ]
