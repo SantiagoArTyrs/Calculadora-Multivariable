@@ -1,12 +1,16 @@
 # Calculadora Multivariable en Streamlit 🧠
 
 Esta app permite calcular derivadas, integrales dobles y triples, masa y centroide, y visualizar funciones 3D en tiempo real.
+### 🎯 Qué puedes hacer en la app
 
-## Funcionalidades
-- Derivadas parciales
-- Integración doble y triple
-- Masa y centro de masa
-- Visualización 3D interactiva
+* **Derivadas parciales**: Calcula derivadas de funciones con 2 variables.
+* **Integrales dobles y triples**: Ingresa funciones y límites simbólicos.
+* **Masa y centro de masa**: Evalúa densidades en una región.
+* **Visualización 3D**: Dibuja gráficamente funciones de 2 variables.
+
+---
+
+
   
 ### ✅ Requisitos previos
 
@@ -90,28 +94,9 @@ Verás que se abre una pestaña en tu navegador con la calculadora.
 
 ---
 
-### 🎯 Qué puedes hacer en la app
-
-* **Derivadas parciales**: Calcula derivadas de funciones con 2 variables.
-* **Integrales dobles y triples**: Ingresa funciones y límites simbólicos.
-* **Masa y centro de masa**: Evalúa densidades en una región.
-* **Visualización 3D**: Dibuja gráficamente funciones de 2 variables.
-
----
-
 ### 📚 Si algo falla
 
 * Asegúrate de escribir bien las funciones (usa `^` para potencias, por ejemplo `x^2`).
 * Si algo no carga, revisa que estés en la carpeta del proyecto y que hayas activado el entorno virtual.
 
 ---
-
-¿Quieres que también te genere esta guía como archivo PDF descargable?
-
-```
-
-```
-
-```
-streamlit run app.py
-```
