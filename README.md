@@ -7,7 +7,7 @@ Esta app permite calcular derivadas, integrales dobles y triples, masa y centroi
 - Integración doble y triple
 - Masa y centro de masa
 - Visualización 3D interactiva
-- 
+  
 ### ✅ Requisitos previos
 
 Antes de comenzar, asegúrate de tener lo siguiente instalado en tu computador:
